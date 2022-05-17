@@ -41,7 +41,7 @@ class MuSHRROSConnector : public BodyROSConnector
     int velocity_ctrl_idx_;
     int acceleration_ctrl_idx_;
     int steering_angle_ctrl_idx_;
-    bool use_accel_control_;
+    bool use_accel_control_ = false;
 
     void control_cb(const ackermann_msgs::AckermannDriveStampedConstPtr&);
     void initial_pose_cb(const geometry_msgs::PoseWithCovarianceStampedConstPtr&);

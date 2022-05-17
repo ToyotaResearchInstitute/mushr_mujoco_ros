@@ -23,10 +23,7 @@ MuSHRROSConnector::MuSHRROSConnector(ros::NodeHandle* nh, const YAML::Node& e)
     control_sub_ = nh_->subscribe(
         pvt_name(control_topic), 1, &MuSHRROSConnector::control_cb, this);
 
-    std::cout << pvt_name(accel_control) << std::endl;
-    std::cout << "has param " << nh->hasParam(pvt_name(accel_control)) << std::endl;
     nh->getParam(pvt_name(accel_control), use_accel_control_);
-    std::cout << "use accel cntrl " << use_accel_control_ << std::endl;
 
     std::string tv = car_ref("throttle_velocity");
     std::string ta = car_ref("throttle_acceleration");

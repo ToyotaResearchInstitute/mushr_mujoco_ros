@@ -38,32 +38,38 @@
 
       <body name="buddy_wheel_fl" pos="0.1385 0.115 0.0488">
         <joint class="buddy_steering" name="buddy_wheel_fl_steering"/>
-        <joint class="buddy_current" name="buddy_wheel_fl_throttle"/>
+        <!-- buddy_throttle if using speed control, buddy_current for accel-->
+        <joint class="buddy_throttle" name="buddy_wheel_fl_throttle"/>
         <geom class="buddy_wheel"/>
         <geom class="buddy_wheel" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 0.3"/>
       </body>
       <body name="buddy_wheel_fr" pos="0.1385 -0.115 0.0488">
         <joint class="buddy_steering" name="buddy_wheel_fr_steering"/>
-        <joint class="buddy_current" name="buddy_wheel_fr_throttle"/>
+        <!-- buddy_throttle if using speed control, buddy_current for accel-->
+        <joint class="buddy_throttle" name="buddy_wheel_fr_throttle"/>
         <geom class="buddy_wheel"/>
         <geom class="buddy_wheel" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 0.3"/>
       </body>
       <body name="buddy_wheel_bl" pos="-0.158 0.115 0.0488">
-        <joint class="buddy_current" name="buddy_wheel_bl_throttle"/>
+        <!-- buddy_throttle if using speed control, buddy_current for accel-->
+        <joint class="buddy_throttle" name="buddy_wheel_bl_throttle"/>
         <geom class="buddy_wheel"/>
         <geom class="buddy_wheel" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 0.3"/>
       </body>
       <body name="buddy_wheel_br" pos="-0.158 -0.115 0.0488">
-        <joint class="buddy_current" name="buddy_wheel_br_throttle"/>
+        <!-- buddy_throttle if using speed control, buddy_current for accel-->
+        <joint class="buddy_throttle" name="buddy_wheel_br_throttle"/>
         <geom class="buddy_wheel"/>
         <geom class="buddy_wheel" type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 0.3"/>
       </body>
     </body>
   </worldbody>
+  <!-- Uncomment the following line if using speed control -->
   <actuator>
     <position class="buddy_steering" kp="25.0" name="buddy_steering_pos" joint="buddy_steering_wheel"/>
     <velocity kv="100" gear="0.04" forcelimited="true" forcerange="-500 500" name="buddy_throttle_velocity" tendon="buddy_throttle"/>
   </actuator>
+  <!-- Uncomment the following line if using acceleration control -->
   <!-- <actuator>
     <position class="buddy_steering" kp="25.0" name="buddy_steering_pos" joint="buddy_steering_wheel"/>
     <velocity kv="100" gear="0.04" forcelimited="true" forcerange="-500 500" name="buddy_throttle_acceleration" tendon="buddy_current"/>
