@@ -108,14 +108,13 @@ set(USE_GL 1) #USE_GL if we are to use GL with mujoco
 
 if(NOT DEFINED $ENV{MUJOCO_LOCATION})
   # List all folderes in .mujoco.
-  file(GLOB MUJOCO_FOLDERS "$ENV{HOME}/.mujoco/mujoco-2.*")
+  file(GLOB MUJOCO_FOLDERS "$ENV{HOME}/.mujoco/mujoco-*")
   # Sort descending so latest version is first.
   list(SORT MUJOCO_FOLDERS)
   list(REVERSE MUJOCO_FOLDERS)
   list(GET MUJOCO_FOLDERS 0 MUJOCO_FOLDER)
 
   set(MUJOCO_LOCATION "${MUJOCO_FOLDER}")
-  # set(MUJOCO_LOCATION $ENV{HOME}/.mujoco/mujoco-2.1.1)
 else()
 	set(MUJOCO_LOCATION $ENV{MUJOCO_LCOATION})
 endif()
